@@ -1,6 +1,17 @@
 MELON_COST = 1.00   # define cost of one melon
 
-# new customer information:
+# read in customer information:
+def get_customer_info(customer_orders_file):
+    """ read in customer info from a file """
+    the_file = open(customer_orders_file)
+    i = 0
+    for line in the_file:
+        line = line.rstrip()
+        info = line.split('|')
+        num, name, num_melons, amount_paid = info
+        if i < 3:
+            print(info)
+        i += 1
 customer1_name = "Joe"      
 customer1_melons = 5
 customer1_paid = 5.00
@@ -39,4 +50,6 @@ check_payment(customer3_name,customer3_melons,customer3_paid)
 check_payment(customer4_name,customer4_melons,customer4_paid)
 check_payment(customer5_name,customer5_melons,customer5_paid)
 check_payment(customer6_name,customer6_melons,customer6_paid)
+
+get_customer_info('customer-orders.txt')
 
